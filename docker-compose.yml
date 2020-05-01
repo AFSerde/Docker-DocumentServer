@@ -24,7 +24,7 @@ services:
       - '443:443'
     stdin_open: true
     restart: always
-       
+    // volumens were delete
   onlyoffice-rabbitmq:
     container_name: onlyoffice-rabbitmq
     image: rabbitmq
