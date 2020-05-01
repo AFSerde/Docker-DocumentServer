@@ -5,7 +5,6 @@ services:
       context: .
     container_name: onlyoffice-documentserver
     depends_on:
-      - onlyoffice-postgresql
       - onlyoffice-rabbitmq
     environment:
       - DB_TYPE=postgres
@@ -32,18 +31,3 @@ services:
     expose:
       - '5672'
 
-  onlyoffice-postgresql:
-    container_name: onlyoffice-postgresql
-    image: postgres:9.5
-    environment:
-      - POSTGRES_DB=onlyoffice
-      - POSTGRES_USER=onlyoffice
-      - POSTGRES_HOST_AUTH_METHOD=trust
-    restart: always
-    expose:
-      - '5432'
-    volumes:
-      - postgresql_data:/var/lib/postgresql
-
-volumes:
-  postgresql_data:
