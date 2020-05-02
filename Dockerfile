@@ -79,6 +79,6 @@ RUN echo "$REPO_URL" | tee /etc/apt/sources.list.d/ds.list && \
     rm -rf /var/log/$COMPANY_NAME && \
     rm -rf /var/lib/apt/lists/*
 
-VOLUME /var/log/$COMPANY_NAME /var/lib/$COMPANY_NAME /var/www/$COMPANY_NAME/Data /var/lib/postgresql /var/lib/rabbitmq /var/lib/redis /usr/share/fonts/truetype/custom
+VOLUME /var/lib/postgresql /var/lib/rabbitmq /var/lib/redis
 
 ENTRYPOINT /app/ds/run-document-server.sh
