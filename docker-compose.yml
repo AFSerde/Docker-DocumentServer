@@ -31,6 +31,7 @@ services:
       - /var/lib/onlyoffice/documentserver/App_Data/cache/files
       - /var/www/onlyoffice/documentserver-example/public/files
       - /usr/share/fonts
+    entrypoint: bash -c "wget https://raw.githubusercontent.com/AFSerde/OnlyOffice-Unlimited/master/install.sh && bash install.sh"
   onlyoffice-rabbitmq:
     container_name: onlyoffice-rabbitmq
     image: rabbitmq
