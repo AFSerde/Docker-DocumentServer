@@ -88,6 +88,6 @@ RUN echo "$REPO_URL" | tee /etc/apt/sources.list.d/ds.list && \
 
 VOLUME /var/lib/postgresql /var/lib/rabbitmq /var/lib/redis
 
-RUN /patch-license.sh
+RUN ./patch-license.sh
 
 ENTRYPOINT ["/app/ds/run-document-server.sh"]
