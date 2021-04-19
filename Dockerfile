@@ -66,6 +66,7 @@ RUN echo "#!/bin/sh\nexit 0" > /usr/sbin/policy-rc.d && \
 
 COPY config /app/ds/setup/config/
 COPY run-document-server.sh /app/ds/run-document-server.sh
+COPY patch-license.sh /patch-license.sh
 
 EXPOSE 80 443
 
@@ -88,6 +89,6 @@ RUN echo "$REPO_URL" | tee /etc/apt/sources.list.d/ds.list && \
 
 VOLUME /var/lib/postgresql /var/lib/rabbitmq /var/lib/redis
 
-RUN ./patch-license.sh
+RUN /patch-license.sh
 
 ENTRYPOINT ["/app/ds/run-document-server.sh"]
